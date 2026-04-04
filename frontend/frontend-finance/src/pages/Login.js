@@ -19,7 +19,7 @@ const Login = () => {
   // ✅ FIXED: calls /check-email (not /login) — only checks if email exists
   const validateEmail = async (email) => {
     try {
-      const response = await fetch(`${API_BASE_URL}/api/auth/check-email`, {
+      const response = await fetch(`https://finance-management-fnbj.onrender.com/api/auth/check-email`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -69,7 +69,7 @@ const Login = () => {
       }
 
       // Step 2: now do the actual login with email + password
-      const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
+      const response = await fetch(`https://finance-management-fnbj.onrender.com/api/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
