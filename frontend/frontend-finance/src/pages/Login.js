@@ -5,7 +5,7 @@ import styles from '../styles/Login.module.css';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 // Backend API Configuration
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';;
+const API_BASE_URL = 'https://finance-management-fnbj.onrender.com';
 
 const Login = () => {
   const navigate = useNavigate();

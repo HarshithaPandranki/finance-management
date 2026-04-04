@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import '../styles/Track.css';
 
 // Backend API Configuration
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';; // Deployed backend URL
+const API_BASE_URL = 'https://finance-management-fnbj.onrender.com';// Deployed backend URL
  // Deployed backend URL
 
 const Track = () => {
