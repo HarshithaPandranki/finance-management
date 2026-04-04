@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import styles from '../styles/Signup.module.css';
 
 // Backend API Configuration
-const API_BASE_URL = '${process.env.REACT_APP_API_URL}'; // Deployed backend URL
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';; // Deployed backend URL
 
 const Signup = () => {
   const navigate = useNavigate();
