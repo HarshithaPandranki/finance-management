@@ -1,5 +1,6 @@
 // Backend API Configuration
-const API_BASE_URL = 'http://localhost:5000'; // Deployed backend URL
+const API_BASE_URL = '${process.env.REACT_APP_API_URL}'; // Deployed backend URL
+ // Deployed backend URL
 
 export const uploadFile = async (file) => {
     const formData = new FormData();

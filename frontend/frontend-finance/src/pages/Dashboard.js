@@ -27,7 +27,7 @@ import { Card, Row, Col, DatePicker, Statistic, Radio } from 'antd';
 import moment from 'moment';
 
 // Backend API Configuration
-const API_BASE_URL = 'http://localhost:5000'; // Deployed backend URL
+const API_BASE_URL = '${process.env.REACT_APP_API_URL}'; // Deployed backend URL
 
 // Theme configuration
 const darkTheme = {
