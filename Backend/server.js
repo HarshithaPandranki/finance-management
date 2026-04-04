@@ -26,19 +26,19 @@ if (!fs.existsSync(uploadDir)) {
 
 
 // Middleware
+// Middleware
 app.use(cors({
   origin: function(origin, callback) {
-    const allowedOrigins = [
-      'http://localhost:3000',
-      'http://localhost:3001',
-      'https://statuesque-chebakia-1eb7f2.netlify.app',
-      process.env.FRONTEND_URL
-    ];
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
+    if (!origin) return callback(null, true);
+    
+    if (
+      origin.includes('vercel.app') ||
+      origin.includes('localhost')
+    ) {
+      return callback(null, true);
     }
+    
+    callback(new Error('Not allowed by CORS'));
   },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
