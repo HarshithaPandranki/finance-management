@@ -3,7 +3,7 @@ import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer, Label } from
 import styles from '../styles/predict.module.css';
 import { uploadFile, fetchFromDatabase } from '../api/api';
 import { useAuth } from '../context/AuthContext';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
@@ -17,7 +17,7 @@ const Predict = () => {
     const [exportLoading, setExportLoading] = useState(false);
     const [saveLoading, setSaveLoading] = useState(false);
     const navigate = useNavigate();
-    const { token, logout } = useAuth();
+    const { logout } = useAuth();
     const resultsRef = useRef(null);
     
     const chartData = predictions
@@ -25,24 +25,6 @@ const Predict = () => {
         : [];
 
     const handleFileChange = (event) => setFile(event.target.files[0]);
-    const fetchWithAuth = async (url, options = {}) => {
-        const response = await fetch(url, {
-            ...options,
-            headers: {
-                'Authorization': `Bearer ${token}`,
-                'Content-Type': 'application/json',
-                ...options.headers,
-            },
-        });
-
-        if (response.status === 401) {
-            await logout();
-            navigate('/login');
-            throw new Error('Session expired');
-        }
-
-        return response;
-    };
 
     const handlePrediction = async () => {
         if (source === 'csv' && !file) return alert('Please select a file');
@@ -100,12 +82,7 @@ const Predict = () => {
         
         setSaveLoading(true);
         try {
-            // In a real app, we would save to the backend
-            const saveData = {
-                predictions,
-                timestamp: new Date().toISOString(),
-                source: source
-            };
+
             
             // Simulate saving to backend
             await new Promise(resolve => setTimeout(resolve, 1000));
@@ -171,16 +148,15 @@ const Predict = () => {
                         <li><a href="/track">Track</a></li>
                         <li><a href="/dashboard">Dashboard</a></li>
                         <li>
-                            <a
-                                role="button"
-                                onClick={() => {
-                                    logout();
-                                    window.location.href = '/login';
-                                }}
-                                className="logout-btn"
-                            >
-                                Logout
-                            </a>
+                         <button
+    onClick={() => {
+        logout();
+        window.location.href = '/login';
+    }}
+    className="logout-btn"
+>
+    Logout
+</button>
                         </li>
                     </ul>
                     <div className="menu-toggle">
