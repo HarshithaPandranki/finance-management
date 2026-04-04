@@ -1,0 +1,254 @@
+/* General styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+  color: #333;
+  min-height: 100vh;
+}
+
+.logo {
+  color: #333;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logo i {
+  margin-right: 0.4rem;
+}
+
+.btn-head {
+  background: linear-gradient(to right, #667eea, #764ba2);
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn-head:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Container and form styles */
+.signupContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  padding: 60px 1rem 1rem;
+  background: url('../assets/login.jpg') no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: 1;
+}
+
+.signupForm {
+  width: 100%;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1.8rem;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.signupForm:hover {
+  transform: translateY(-4px);
+}
+
+.signupForm h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 1.2rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.formGroup {
+  margin-bottom: 1.2rem;
+  position: relative;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.formGroup span {
+  color: #e74c3c;
+}
+
+.formGroup input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 2px solid #e1e1e1;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+}
+
+.formGroup input:focus {
+  border-color: #667eea;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.25);
+}
+
+.submitButton {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(to right, #667eea, #764ba2);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.6rem;
+}
+
+.submitButton:hover {
+  background: linear-gradient(to right, #764ba2, #667eea);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.errorMessage {
+  color: #dc3545;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.loginLink {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.loginLink a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.loginLink a:hover {
+  text-decoration: underline;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1024px) {
+  .navbar {
+    padding: 0.8rem 2%;
+  }
+  
+  .nav-links {
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 0.8rem 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    padding-top: 1rem;
+    gap: 1rem;
+  }
+
+  .btn-head {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .signupForm {
+    padding: 1.2rem;
+    margin: 0 1rem;
+  }
+
+  .signupForm h2 {
+    font-size: 1.5rem;
+  }
+
+  .container {
+    padding-top: 100px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navbar {
+    padding: 0.6rem 1rem;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .btn-head {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .signupContainer {
+    padding: 80px 0.8rem 0.8rem;
+  }
+
+  .signupForm {
+    padding: 1rem;
+  }
+
+  .signupForm h2 {
+    font-size: 1.3rem;
+  }
+
+  .submitButton {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  .formGroup input {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

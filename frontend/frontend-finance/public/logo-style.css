@@ -1,0 +1,21 @@
+/* Custom styles for the logo */
+.site-logo {
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 2px solid #00a89c;
+  display: inline-block;
+}
+
+.site-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* For favicon logic - this won't directly affect the browser tab icon,
+   but will affect any logo displayed in the site */
+link[rel="icon"] {
+  border-radius: 50%;
+} 

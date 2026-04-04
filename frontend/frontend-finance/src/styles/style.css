@@ -1,0 +1,382 @@
+/* Navigation Bar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 3rem;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0; /* Added to ensure navbar stays aligned left */
+  right: 0; /* Added to ensure navbar spans full width */
+  width: 100%;
+  box-sizing: border-box; /* Added to include padding in width calculation */
+  z-index: 1000;
+}
+
+.logo {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.8rem;
+  font-weight: bold;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-links a:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover:after {
+  width: 100%;
+}
+
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+/* Landing Section Styles */
+.main-landing {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6rem 4rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+  max-width: 600px;
+  animation: fadeInLeft 1s ease;
+}
+
+.under-welcome-h1 {
+  font-size: 3.5rem;
+  background: linear-gradient(45deg, #1a2a6c, #b21f1f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.5rem;
+}
+
+.under-h1 {
+  width: 120px;
+  height: 5px;
+  background: linear-gradient(to right, #667eea, #764ba2);
+  margin-bottom: 2rem;
+  border-radius: 10px;
+}
+
+.under-welcome-p {
+  font-size: 1.3rem;
+  color: #555;
+  margin-bottom: 2.5rem;
+  line-height: 1.8;
+}
+
+.under-welcome-btn {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  background: linear-gradient(to right, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  margin-right: 1rem;
+}
+
+.under-welcome-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  animation: fadeInRight 1s ease;
+  margin-left: 2rem; /* Added margin to move image right */
+}
+
+.under-welcome-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.under-welcome-image:hover {
+  transform: scale(1.02);
+}
+
+/* How It Works Section Styles */
+.how-it-works {
+  padding: 6rem 4rem;
+  background: #ffffff;
+}
+
+.head-text {
+  text-align: center;
+  font-size: 3rem;
+  background: linear-gradient(45deg, #1a2a6c, #b21f1f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.5rem;
+}
+
+.under-head-text {
+  width: 120px;
+  height: 5px;
+  background: linear-gradient(to right, #667eea, #764ba2);
+  margin: 0 auto 4rem;
+  border-radius: 10px;
+}
+
+.working-content {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+  margin-top: 3rem;
+}
+
+.left-working {
+  flex: 1;
+  animation: fadeInLeft 1s ease;
+}
+
+.working-head {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 2.5rem;
+}
+
+.ul-items {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 3rem;
+}
+
+.check-list-items {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  color: #555;
+  transition: transform 0.3s ease;
+}
+
+.check-list-items:hover {
+  transform: translateX(10px);
+}
+
+.icon-check {
+  color: #667eea;
+  margin-right: 1.5rem;
+  font-size: 1.3rem;
+}
+
+.sign-up-button-btn {
+  padding: 1.2rem 2.5rem;
+  font-size: 1.2rem;
+  background: linear-gradient(to right, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.sign-up-button-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.right-working {
+  flex: 1;
+  animation: fadeInRight 1s ease;
+}
+
+.right-working-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.right-working-image:hover {
+  transform: scale(1.02);
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  padding: 3rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+/* Animations */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .under-welcome-h1 {
+    font-size: 3rem;
+  }
+  
+  .working-content {
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .main-landing,
+  .working-content {
+    padding: 4rem 2rem;
+  }
+  
+  .under-welcome-h1 {
+    font-size: 2.5rem;
+  }
+  
+  .working-head {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 2rem;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1rem 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .main-landing,
+  .working-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  .content,
+  .left-working {
+    margin-bottom: 2rem;
+  }
+
+  .under-h1,
+  .under-head-text {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .under-welcome-h1 {
+    font-size: 2.2rem;
+  }
+
+  .under-welcome-p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .main-landing,
+  .working-content,
+  .how-it-works {
+    padding: 3rem 1.5rem;
+  }
+
+  .under-welcome-h1 {
+    font-size: 2rem;
+  }
+
+  .under-welcome-btn,
+  .sign-up-button-btn {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+
+  .head-text {
+    font-size: 2.2rem;
+  }
+
+  .check-list-items {
+    font-size: 1.1rem;
+  }
+}

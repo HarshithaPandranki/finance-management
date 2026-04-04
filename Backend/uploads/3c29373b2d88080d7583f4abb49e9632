@@ -1,0 +1,591 @@
+Date,Description,Amount,Type
+01/02/2025,Utilities,₹4094.00,expense
+01/02/2025,Groceries,₹627.00,expense
+01/02/2025,Transportation,₹4040.00,expense
+01/02/2025,Housing,₹3700.00,expense
+01/02/2025,Food & Dinning,₹2347.00,expense
+01/02/2025,Shopping,₹2226.00,expense
+01/02/2025,Education,₹4344.00,expense
+01/02/2025,Entertainment,₹2098.00,expense
+01/02/2025,Health,₹4810.00,expense
+01/02/2025,Others,₹4620.00,expense
+02/02/2025,Utilities,₹1265.00,expense
+02/02/2025,Groceries,₹300.00,expense
+02/02/2025,Transportation,₹2131.00,expense
+02/02/2025,Housing,₹3021.00,expense
+02/02/2025,Food & Dinning,₹1614.00,expense
+02/02/2025,Shopping,₹1155.00,expense
+02/02/2025,Education,₹992.00,expense
+02/02/2025,Entertainment,₹4656.00,expense
+02/02/2025,Health,₹2675.00,expense
+02/02/2025,Others,₹4087.00,expense
+03/02/2025,Utilities,₹1928.00,expense
+03/02/2025,Groceries,₹637.00,expense
+03/02/2025,Transportation,₹4675.00,expense
+03/02/2025,Housing,₹4435.00,expense
+03/02/2025,Food & Dinning,₹2541.00,expense
+03/02/2025,Shopping,₹2687.00,expense
+03/02/2025,Education,₹1712.00,expense
+03/02/2025,Entertainment,₹314.00,expense
+03/02/2025,Health,₹1894.00,expense
+03/02/2025,Others,₹269.00,expense
+04/02/2025,Utilities,₹3997.00,expense
+04/02/2025,Groceries,₹1195.00,expense
+04/02/2025,Transportation,₹3648.00,expense
+04/02/2025,Housing,₹3287.00,expense
+04/02/2025,Food & Dinning,₹1119.00,expense
+04/02/2025,Shopping,₹356.00,expense
+04/02/2025,Education,₹4301.00,expense
+04/02/2025,Entertainment,₹183.00,expense
+04/02/2025,Health,₹668.00,expense
+04/02/2025,Others,₹4654.00,expense
+05/02/2025,Utilities,₹965.00,expense
+05/02/2025,Groceries,₹4251.00,expense
+05/02/2025,Transportation,₹2671.00,expense
+05/02/2025,Housing,₹2626.00,expense
+05/02/2025,Food & Dinning,₹1266.00,expense
+05/02/2025,Shopping,₹1481.00,expense
+05/02/2025,Education,₹4929.00,expense
+05/02/2025,Entertainment,₹1923.00,expense
+05/02/2025,Health,₹4679.00,expense
+05/02/2025,Others,₹4887.00,expense
+06/02/2025,Utilities,₹1581.00,expense
+06/02/2025,Groceries,₹2828.00,expense
+06/02/2025,Transportation,₹2456.00,expense
+06/02/2025,Housing,₹4281.00,expense
+06/02/2025,Food & Dinning,₹2795.00,expense
+06/02/2025,Shopping,₹3643.00,expense
+06/02/2025,Education,₹110.00,expense
+06/02/2025,Entertainment,₹2970.00,expense
+06/02/2025,Health,₹425.00,expense
+06/02/2025,Others,₹1879.00,expense
+07/02/2025,Utilities,₹4024.00,expense
+07/02/2025,Groceries,₹1931.00,expense
+07/02/2025,Transportation,₹1525.00,expense
+07/02/2025,Housing,₹551.00,expense
+07/02/2025,Food & Dinning,₹1540.00,expense
+07/02/2025,Shopping,₹4411.00,expense
+07/02/2025,Education,₹2496.00,expense
+07/02/2025,Entertainment,₹600.00,expense
+07/02/2025,Health,₹652.00,expense
+07/02/2025,Others,₹1666.00,expense
+08/02/2025,Utilities,₹2914.00,expense
+08/02/2025,Groceries,₹4334.00,expense
+08/02/2025,Transportation,₹4343.00,expense
+08/02/2025,Housing,₹2522.00,expense
+08/02/2025,Food & Dinning,₹3561.00,expense
+08/02/2025,Shopping,₹2772.00,expense
+08/02/2025,Education,₹1602.00,expense
+08/02/2025,Entertainment,₹4235.00,expense
+08/02/2025,Health,₹2218.00,expense
+08/02/2025,Others,₹2201.00,expense
+09/02/2025,Utilities,₹1352.00,expense
+09/02/2025,Groceries,₹4714.00,expense
+09/02/2025,Transportation,₹4620.00,expense
+09/02/2025,Housing,₹1445.00,expense
+09/02/2025,Food & Dinning,₹1469.00,expense
+09/02/2025,Shopping,₹4688.00,expense
+09/02/2025,Education,₹1511.00,expense
+09/02/2025,Entertainment,₹3694.00,expense
+09/02/2025,Health,₹1147.00,expense
+09/02/2025,Others,₹1263.00,expense
+10/02/2025,Utilities,₹3509.00,expense
+10/02/2025,Groceries,₹3549.00,expense
+10/02/2025,Transportation,₹1089.00,expense
+10/02/2025,Housing,₹2146.00,expense
+10/02/2025,Food & Dinning,₹3204.00,expense
+10/02/2025,Shopping,₹1365.00,expense
+10/02/2025,Education,₹3174.00,expense
+10/02/2025,Entertainment,₹361.00,expense
+10/02/2025,Health,₹4849.00,expense
+10/02/2025,Others,₹2741.00,expense
+11/02/2025,Utilities,₹4438.00,expense
+11/02/2025,Groceries,₹4873.00,expense
+11/02/2025,Transportation,₹318.00,expense
+11/02/2025,Housing,₹1528.00,expense
+11/02/2025,Food & Dinning,₹1488.00,expense
+11/02/2025,Shopping,₹744.00,expense
+11/02/2025,Education,₹2103.00,expense
+11/02/2025,Entertainment,₹4342.00,expense
+11/02/2025,Health,₹428.00,expense
+11/02/2025,Others,₹4215.00,expense
+12/02/2025,Utilities,₹1894.00,expense
+12/02/2025,Groceries,₹2842.00,expense
+12/02/2025,Transportation,₹626.00,expense
+12/02/2025,Housing,₹1109.00,expense
+12/02/2025,Food & Dinning,₹715.00,expense
+12/02/2025,Shopping,₹4070.00,expense
+12/02/2025,Education,₹3799.00,expense
+12/02/2025,Entertainment,₹3057.00,expense
+12/02/2025,Health,₹2821.00,expense
+12/02/2025,Others,₹1921.00,expense
+13/02/2025,Utilities,₹447.00,expense
+13/02/2025,Groceries,₹1042.00,expense
+13/02/2025,Transportation,₹3105.00,expense
+13/02/2025,Housing,₹199.00,expense
+13/02/2025,Food & Dinning,₹540.00,expense
+13/02/2025,Shopping,₹3344.00,expense
+13/02/2025,Education,₹3352.00,expense
+13/02/2025,Entertainment,₹1071.00,expense
+13/02/2025,Health,₹1584.00,expense
+13/02/2025,Others,₹1958.00,expense
+14/02/2025,Utilities,₹1222.00,expense
+14/02/2025,Groceries,₹408.00,expense
+14/02/2025,Transportation,₹1841.00,expense
+14/02/2025,Housing,₹3052.00,expense
+14/02/2025,Food & Dinning,₹1268.00,expense
+14/02/2025,Shopping,₹1338.00,expense
+14/02/2025,Education,₹4393.00,expense
+14/02/2025,Entertainment,₹408.00,expense
+14/02/2025,Health,₹3708.00,expense
+14/02/2025,Others,₹4159.00,expense
+15/02/2025,Utilities,₹4801.00,expense
+15/02/2025,Groceries,₹2836.00,expense
+15/02/2025,Transportation,₹1021.00,expense
+15/02/2025,Housing,₹4101.00,expense
+15/02/2025,Food & Dinning,₹531.00,expense
+15/02/2025,Shopping,₹1963.00,expense
+15/02/2025,Education,₹4448.00,expense
+15/02/2025,Entertainment,₹4818.00,expense
+15/02/2025,Health,₹747.00,expense
+15/02/2025,Others,₹1039.00,expense
+16/02/2025,Utilities,₹4351.00,expense
+16/02/2025,Groceries,₹3744.00,expense
+16/02/2025,Transportation,₹3011.00,expense
+16/02/2025,Housing,₹4117.00,expense
+16/02/2025,Food & Dinning,₹4739.00,expense
+16/02/2025,Shopping,₹4620.00,expense
+16/02/2025,Education,₹2038.00,expense
+16/02/2025,Entertainment,₹2435.00,expense
+16/02/2025,Health,₹1442.00,expense
+16/02/2025,Others,₹147.00,expense
+17/02/2025,Utilities,₹2683.00,expense
+17/02/2025,Groceries,₹3308.00,expense
+17/02/2025,Transportation,₹2256.00,expense
+17/02/2025,Housing,₹4725.00,expense
+17/02/2025,Food & Dinning,₹254.00,expense
+17/02/2025,Shopping,₹533.00,expense
+17/02/2025,Education,₹3168.00,expense
+17/02/2025,Entertainment,₹3189.00,expense
+17/02/2025,Health,₹2196.00,expense
+17/02/2025,Others,₹101.00,expense
+18/02/2025,Utilities,₹2516.00,expense
+18/02/2025,Groceries,₹3820.00,expense
+18/02/2025,Transportation,₹827.00,expense
+18/02/2025,Housing,₹4033.00,expense
+18/02/2025,Food & Dinning,₹2144.00,expense
+18/02/2025,Shopping,₹2936.00,expense
+18/02/2025,Education,₹781.00,expense
+18/02/2025,Entertainment,₹2530.00,expense
+18/02/2025,Health,₹1215.00,expense
+18/02/2025,Others,₹4779.00,expense
+19/02/2025,Utilities,₹3512.00,expense
+19/02/2025,Groceries,₹1041.00,expense
+19/02/2025,Transportation,₹2175.00,expense
+19/02/2025,Housing,₹2098.00,expense
+19/02/2025,Food & Dinning,₹3047.00,expense
+19/02/2025,Shopping,₹1332.00,expense
+19/02/2025,Education,₹2804.00,expense
+19/02/2025,Entertainment,₹2657.00,expense
+19/02/2025,Health,₹3771.00,expense
+19/02/2025,Others,₹1712.00,expense
+20/02/2025,Utilities,₹2627.00,expense
+20/02/2025,Groceries,₹1592.00,expense
+20/02/2025,Transportation,₹3267.00,expense
+20/02/2025,Housing,₹1724.00,expense
+20/02/2025,Food & Dinning,₹696.00,expense
+20/02/2025,Shopping,₹3259.00,expense
+20/02/2025,Education,₹446.00,expense
+20/02/2025,Entertainment,₹1792.00,expense
+20/02/2025,Health,₹4844.00,expense
+20/02/2025,Others,₹4710.00,expense
+21/02/2025,Utilities,₹2674.00,expense
+21/02/2025,Groceries,₹4806.00,expense
+21/02/2025,Transportation,₹4640.00,expense
+21/02/2025,Housing,₹4312.00,expense
+21/02/2025,Food & Dinning,₹2832.00,expense
+21/02/2025,Shopping,₹3586.00,expense
+21/02/2025,Education,₹3898.00,expense
+21/02/2025,Entertainment,₹3697.00,expense
+21/02/2025,Health,₹1304.00,expense
+21/02/2025,Others,₹4969.00,expense
+22/02/2025,Utilities,₹1679.00,expense
+22/02/2025,Groceries,₹2188.00,expense
+22/02/2025,Transportation,₹473.00,expense
+22/02/2025,Housing,₹1463.00,expense
+22/02/2025,Food & Dinning,₹3923.00,expense
+22/02/2025,Shopping,₹1677.00,expense
+22/02/2025,Education,₹952.00,expense
+22/02/2025,Entertainment,₹346.00,expense
+22/02/2025,Health,₹4957.00,expense
+22/02/2025,Others,₹1992.00,expense
+23/02/2025,Utilities,₹3988.00,expense
+23/02/2025,Groceries,₹3256.00,expense
+23/02/2025,Transportation,₹4254.00,expense
+23/02/2025,Housing,₹1715.00,expense
+23/02/2025,Food & Dinning,₹4359.00,expense
+23/02/2025,Shopping,₹656.00,expense
+23/02/2025,Education,₹2540.00,expense
+23/02/2025,Entertainment,₹1621.00,expense
+23/02/2025,Health,₹3001.00,expense
+23/02/2025,Others,₹858.00,expense
+24/02/2025,Utilities,₹2230.00,expense
+24/02/2025,Groceries,₹2209.00,expense
+24/02/2025,Transportation,₹1078.00,expense
+24/02/2025,Housing,₹2266.00,expense
+24/02/2025,Food & Dinning,₹3277.00,expense
+24/02/2025,Shopping,₹2319.00,expense
+24/02/2025,Education,₹4738.00,expense
+24/02/2025,Entertainment,₹769.00,expense
+24/02/2025,Health,₹2476.00,expense
+24/02/2025,Others,₹4639.00,expense
+25/02/2025,Utilities,₹919.00,expense
+25/02/2025,Groceries,₹2707.00,expense
+25/02/2025,Transportation,₹2686.00,expense
+25/02/2025,Housing,₹1319.00,expense
+25/02/2025,Food & Dinning,₹4246.00,expense
+25/02/2025,Shopping,₹4504.00,expense
+25/02/2025,Education,₹1361.00,expense
+25/02/2025,Entertainment,₹1049.00,expense
+25/02/2025,Health,₹2805.00,expense
+25/02/2025,Others,₹1321.00,expense
+26/02/2025,Utilities,₹3514.00,expense
+26/02/2025,Groceries,₹4453.00,expense
+26/02/2025,Transportation,₹1331.00,expense
+26/02/2025,Housing,₹3875.00,expense
+26/02/2025,Food & Dinning,₹2329.00,expense
+26/02/2025,Shopping,₹3644.00,expense
+26/02/2025,Education,₹3539.00,expense
+26/02/2025,Entertainment,₹4723.00,expense
+26/02/2025,Health,₹1841.00,expense
+26/02/2025,Others,₹1139.00,expense
+27/02/2025,Utilities,₹2169.00,expense
+27/02/2025,Groceries,₹2001.00,expense
+27/02/2025,Transportation,₹3679.00,expense
+27/02/2025,Housing,₹852.00,expense
+27/02/2025,Food & Dinning,₹1233.00,expense
+27/02/2025,Shopping,₹2619.00,expense
+27/02/2025,Education,₹1157.00,expense
+27/02/2025,Entertainment,₹3284.00,expense
+27/02/2025,Health,₹3597.00,expense
+27/02/2025,Others,₹2344.00,expense
+28/02/2025,Utilities,₹3343.00,expense
+28/02/2025,Groceries,₹895.00,expense
+28/02/2025,Transportation,₹545.00,expense
+28/02/2025,Housing,₹2084.00,expense
+28/02/2025,Food & Dinning,₹1523.00,expense
+28/02/2025,Shopping,₹3581.00,expense
+28/02/2025,Education,₹3233.00,expense
+28/02/2025,Entertainment,₹4948.00,expense
+28/02/2025,Health,₹1457.00,expense
+28/02/2025,Others,₹4107.00,expense
+01/03/2025,Utilities,₹3746.00,expense
+01/03/2025,Groceries,₹2072.00,expense
+01/03/2025,Transportation,₹2388.00,expense
+01/03/2025,Housing,₹2211.00,expense
+01/03/2025,Food & Dinning,₹4635.00,expense
+01/03/2025,Shopping,₹4359.00,expense
+01/03/2025,Education,₹1646.00,expense
+01/03/2025,Entertainment,₹1697.00,expense
+01/03/2025,Health,₹4187.00,expense
+01/03/2025,Others,₹4141.00,expense
+02/03/2025,Utilities,₹2380.00,expense
+02/03/2025,Groceries,₹3921.00,expense
+02/03/2025,Transportation,₹3508.00,expense
+02/03/2025,Housing,₹3020.00,expense
+02/03/2025,Food & Dinning,₹4111.00,expense
+02/03/2025,Shopping,₹1807.00,expense
+02/03/2025,Education,₹4723.00,expense
+02/03/2025,Entertainment,₹2786.00,expense
+02/03/2025,Health,₹580.00,expense
+02/03/2025,Others,₹3725.00,expense
+03/03/2025,Utilities,₹2529.00,expense
+03/03/2025,Groceries,₹3938.00,expense
+03/03/2025,Transportation,₹3739.00,expense
+03/03/2025,Housing,₹4036.00,expense
+03/03/2025,Food & Dinning,₹2304.00,expense
+03/03/2025,Shopping,₹4278.00,expense
+03/03/2025,Education,₹364.00,expense
+03/03/2025,Entertainment,₹2216.00,expense
+03/03/2025,Health,₹1140.00,expense
+03/03/2025,Others,₹2866.00,expense
+04/03/2025,Utilities,₹733.00,expense
+04/03/2025,Groceries,₹3292.00,expense
+04/03/2025,Transportation,₹2008.00,expense
+04/03/2025,Housing,₹3425.00,expense
+04/03/2025,Food & Dinning,₹3843.00,expense
+04/03/2025,Shopping,₹2819.00,expense
+04/03/2025,Education,₹897.00,expense
+04/03/2025,Entertainment,₹1833.00,expense
+04/03/2025,Health,₹477.00,expense
+04/03/2025,Others,₹2433.00,expense
+05/03/2025,Utilities,₹4407.00,expense
+05/03/2025,Groceries,₹1722.00,expense
+05/03/2025,Transportation,₹4340.00,expense
+05/03/2025,Housing,₹1055.00,expense
+05/03/2025,Food & Dinning,₹1175.00,expense
+05/03/2025,Shopping,₹2991.00,expense
+05/03/2025,Education,₹3542.00,expense
+05/03/2025,Entertainment,₹476.00,expense
+05/03/2025,Health,₹3836.00,expense
+05/03/2025,Others,₹2286.00,expense
+06/03/2025,Utilities,₹2141.00,expense
+06/03/2025,Groceries,₹1198.00,expense
+06/03/2025,Transportation,₹844.00,expense
+06/03/2025,Housing,₹1237.00,expense
+06/03/2025,Food & Dinning,₹4474.00,expense
+06/03/2025,Shopping,₹4358.00,expense
+06/03/2025,Education,₹2866.00,expense
+06/03/2025,Entertainment,₹3786.00,expense
+06/03/2025,Health,₹394.00,expense
+06/03/2025,Others,₹2231.00,expense
+07/03/2025,Utilities,₹2361.00,expense
+07/03/2025,Groceries,₹4171.00,expense
+07/03/2025,Transportation,₹3419.00,expense
+07/03/2025,Housing,₹766.00,expense
+07/03/2025,Food & Dinning,₹711.00,expense
+07/03/2025,Shopping,₹804.00,expense
+07/03/2025,Education,₹1116.00,expense
+07/03/2025,Entertainment,₹897.00,expense
+07/03/2025,Health,₹3952.00,expense
+07/03/2025,Others,₹1330.00,expense
+08/03/2025,Utilities,₹2213.00,expense
+08/03/2025,Groceries,₹4365.00,expense
+08/03/2025,Transportation,₹189.00,expense
+08/03/2025,Housing,₹4031.00,expense
+08/03/2025,Food & Dinning,₹4447.00,expense
+08/03/2025,Shopping,₹1696.00,expense
+08/03/2025,Education,₹4611.00,expense
+08/03/2025,Entertainment,₹956.00,expense
+08/03/2025,Health,₹4996.00,expense
+08/03/2025,Others,₹4502.00,expense
+09/03/2025,Utilities,₹111.00,expense
+09/03/2025,Groceries,₹700.00,expense
+09/03/2025,Transportation,₹845.00,expense
+09/03/2025,Housing,₹991.00,expense
+09/03/2025,Food & Dinning,₹4830.00,expense
+09/03/2025,Shopping,₹155.00,expense
+09/03/2025,Education,₹4978.00,expense
+09/03/2025,Entertainment,₹4952.00,expense
+09/03/2025,Health,₹840.00,expense
+09/03/2025,Others,₹1871.00,expense
+10/03/2025,Utilities,₹2724.00,expense
+10/03/2025,Groceries,₹4900.00,expense
+10/03/2025,Transportation,₹1287.00,expense
+10/03/2025,Housing,₹4457.00,expense
+10/03/2025,Food & Dinning,₹2598.00,expense
+10/03/2025,Shopping,₹902.00,expense
+10/03/2025,Education,₹2511.00,expense
+10/03/2025,Entertainment,₹3160.00,expense
+10/03/2025,Health,₹3937.00,expense
+10/03/2025,Others,₹3924.00,expense
+11/03/2025,Utilities,₹2147.00,expense
+11/03/2025,Groceries,₹4460.00,expense
+11/03/2025,Transportation,₹4587.00,expense
+11/03/2025,Housing,₹3855.00,expense
+11/03/2025,Food & Dinning,₹435.00,expense
+11/03/2025,Shopping,₹2451.00,expense
+11/03/2025,Education,₹2272.00,expense
+11/03/2025,Entertainment,₹2527.00,expense
+11/03/2025,Health,₹3427.00,expense
+11/03/2025,Others,₹2487.00,expense
+12/03/2025,Utilities,₹1266.00,expense
+12/03/2025,Groceries,₹2789.00,expense
+12/03/2025,Transportation,₹1004.00,expense
+12/03/2025,Housing,₹4135.00,expense
+12/03/2025,Food & Dinning,₹3447.00,expense
+12/03/2025,Shopping,₹2008.00,expense
+12/03/2025,Education,₹1587.00,expense
+12/03/2025,Entertainment,₹4655.00,expense
+12/03/2025,Health,₹3393.00,expense
+12/03/2025,Others,₹1551.00,expense
+13/03/2025,Utilities,₹1444.00,expense
+13/03/2025,Groceries,₹4515.00,expense
+13/03/2025,Transportation,₹3641.00,expense
+13/03/2025,Housing,₹529.00,expense
+13/03/2025,Food & Dinning,₹2142.00,expense
+13/03/2025,Shopping,₹971.00,expense
+13/03/2025,Education,₹922.00,expense
+13/03/2025,Entertainment,₹3552.00,expense
+13/03/2025,Health,₹1996.00,expense
+13/03/2025,Others,₹3892.00,expense
+14/03/2025,Utilities,₹3073.00,expense
+14/03/2025,Groceries,₹3652.00,expense
+14/03/2025,Transportation,₹3135.00,expense
+14/03/2025,Housing,₹3189.00,expense
+14/03/2025,Food & Dinning,₹4918.00,expense
+14/03/2025,Shopping,₹2531.00,expense
+14/03/2025,Education,₹1492.00,expense
+14/03/2025,Entertainment,₹282.00,expense
+14/03/2025,Health,₹1881.00,expense
+14/03/2025,Others,₹3394.00,expense
+15/03/2025,Utilities,₹4022.00,expense
+15/03/2025,Groceries,₹3559.00,expense
+15/03/2025,Transportation,₹3324.00,expense
+15/03/2025,Housing,₹344.00,expense
+15/03/2025,Food & Dinning,₹2766.00,expense
+15/03/2025,Shopping,₹4840.00,expense
+15/03/2025,Education,₹3643.00,expense
+15/03/2025,Entertainment,₹2812.00,expense
+15/03/2025,Health,₹4123.00,expense
+15/03/2025,Others,₹1323.00,expense
+16/03/2025,Utilities,₹284.00,expense
+16/03/2025,Groceries,₹2423.00,expense
+16/03/2025,Transportation,₹3846.00,expense
+16/03/2025,Housing,₹838.00,expense
+16/03/2025,Food & Dinning,₹1303.00,expense
+16/03/2025,Shopping,₹864.00,expense
+16/03/2025,Education,₹4768.00,expense
+16/03/2025,Entertainment,₹3637.00,expense
+16/03/2025,Health,₹1424.00,expense
+16/03/2025,Others,₹1078.00,expense
+17/03/2025,Utilities,₹1742.00,expense
+17/03/2025,Groceries,₹1765.00,expense
+17/03/2025,Transportation,₹1436.00,expense
+17/03/2025,Housing,₹3114.00,expense
+17/03/2025,Food & Dinning,₹3473.00,expense
+17/03/2025,Shopping,₹4771.00,expense
+17/03/2025,Education,₹4454.00,expense
+17/03/2025,Entertainment,₹2114.00,expense
+17/03/2025,Health,₹2559.00,expense
+17/03/2025,Others,₹4695.00,expense
+18/03/2025,Utilities,₹1697.00,expense
+18/03/2025,Groceries,₹4674.00,expense
+18/03/2025,Transportation,₹3050.00,expense
+18/03/2025,Housing,₹2103.00,expense
+18/03/2025,Food & Dinning,₹2924.00,expense
+18/03/2025,Shopping,₹3059.00,expense
+18/03/2025,Education,₹847.00,expense
+18/03/2025,Entertainment,₹2659.00,expense
+18/03/2025,Health,₹2783.00,expense
+18/03/2025,Others,₹1328.00,expense
+19/03/2025,Utilities,₹3525.00,expense
+19/03/2025,Groceries,₹658.00,expense
+19/03/2025,Transportation,₹1511.00,expense
+19/03/2025,Housing,₹915.00,expense
+19/03/2025,Food & Dinning,₹1828.00,expense
+19/03/2025,Shopping,₹1060.00,expense
+19/03/2025,Education,₹1320.00,expense
+19/03/2025,Entertainment,₹1987.00,expense
+19/03/2025,Health,₹2302.00,expense
+19/03/2025,Others,₹641.00,expense
+20/03/2025,Utilities,₹1258.00,expense
+20/03/2025,Groceries,₹3145.00,expense
+20/03/2025,Transportation,₹1874.00,expense
+20/03/2025,Housing,₹2605.00,expense
+20/03/2025,Food & Dinning,₹2171.00,expense
+20/03/2025,Shopping,₹572.00,expense
+20/03/2025,Education,₹1554.00,expense
+20/03/2025,Entertainment,₹4879.00,expense
+20/03/2025,Health,₹3834.00,expense
+20/03/2025,Others,₹3760.00,expense
+21/03/2025,Utilities,₹458.00,expense
+21/03/2025,Groceries,₹2778.00,expense
+21/03/2025,Transportation,₹2283.00,expense
+21/03/2025,Housing,₹2462.00,expense
+21/03/2025,Food & Dinning,₹2414.00,expense
+21/03/2025,Shopping,₹3532.00,expense
+21/03/2025,Education,₹4744.00,expense
+21/03/2025,Entertainment,₹1969.00,expense
+21/03/2025,Health,₹3042.00,expense
+21/03/2025,Others,₹301.00,expense
+22/03/2025,Utilities,₹4385.00,expense
+22/03/2025,Groceries,₹4722.00,expense
+22/03/2025,Transportation,₹2569.00,expense
+22/03/2025,Housing,₹2449.00,expense
+22/03/2025,Food & Dinning,₹2204.00,expense
+22/03/2025,Shopping,₹2238.00,expense
+22/03/2025,Education,₹4290.00,expense
+22/03/2025,Entertainment,₹4461.00,expense
+22/03/2025,Health,₹3495.00,expense
+22/03/2025,Others,₹4243.00,expense
+23/03/2025,Utilities,₹3742.00,expense
+23/03/2025,Groceries,₹3336.00,expense
+23/03/2025,Transportation,₹3020.00,expense
+23/03/2025,Housing,₹623.00,expense
+23/03/2025,Food & Dinning,₹1422.00,expense
+23/03/2025,Shopping,₹1645.00,expense
+23/03/2025,Education,₹589.00,expense
+23/03/2025,Entertainment,₹2607.00,expense
+23/03/2025,Health,₹2196.00,expense
+23/03/2025,Others,₹4892.00,expense
+24/03/2025,Utilities,₹3086.00,expense
+24/03/2025,Groceries,₹2649.00,expense
+24/03/2025,Transportation,₹2598.00,expense
+24/03/2025,Housing,₹395.00,expense
+24/03/2025,Food & Dinning,₹1221.00,expense
+24/03/2025,Shopping,₹847.00,expense
+24/03/2025,Education,₹4332.00,expense
+24/03/2025,Entertainment,₹2462.00,expense
+24/03/2025,Health,₹939.00,expense
+24/03/2025,Others,₹3051.00,expense
+25/03/2025,Utilities,₹138.00,expense
+25/03/2025,Groceries,₹2612.00,expense
+25/03/2025,Transportation,₹1575.00,expense
+25/03/2025,Housing,₹618.00,expense
+25/03/2025,Food & Dinning,₹3684.00,expense
+25/03/2025,Shopping,₹4069.00,expense
+25/03/2025,Education,₹1963.00,expense
+25/03/2025,Entertainment,₹3024.00,expense
+25/03/2025,Health,₹3119.00,expense
+25/03/2025,Others,₹710.00,expense
+26/03/2025,Utilities,₹3094.00,expense
+26/03/2025,Groceries,₹1313.00,expense
+26/03/2025,Transportation,₹4303.00,expense
+26/03/2025,Housing,₹3950.00,expense
+26/03/2025,Food & Dinning,₹2897.00,expense
+26/03/2025,Shopping,₹4521.00,expense
+26/03/2025,Education,₹1151.00,expense
+26/03/2025,Entertainment,₹1819.00,expense
+26/03/2025,Health,₹2759.00,expense
+26/03/2025,Others,₹3291.00,expense
+27/03/2025,Utilities,₹2638.00,expense
+27/03/2025,Groceries,₹1796.00,expense
+27/03/2025,Transportation,₹2221.00,expense
+27/03/2025,Housing,₹2011.00,expense
+27/03/2025,Food & Dinning,₹827.00,expense
+27/03/2025,Shopping,₹1040.00,expense
+27/03/2025,Education,₹2426.00,expense
+27/03/2025,Entertainment,₹3631.00,expense
+27/03/2025,Health,₹2444.00,expense
+27/03/2025,Others,₹2840.00,expense
+28/03/2025,Utilities,₹3017.00,expense
+28/03/2025,Groceries,₹2547.00,expense
+28/03/2025,Transportation,₹1562.00,expense
+28/03/2025,Housing,₹744.00,expense
+28/03/2025,Food & Dinning,₹2811.00,expense
+28/03/2025,Shopping,₹3418.00,expense
+28/03/2025,Education,₹2973.00,expense
+28/03/2025,Entertainment,₹3194.00,expense
+28/03/2025,Health,₹3217.00,expense
+28/03/2025,Others,₹2464.00,expense
+29/03/2025,Utilities,₹1880.00,expense
+29/03/2025,Groceries,₹469.00,expense
+29/03/2025,Transportation,₹861.00,expense
+29/03/2025,Housing,₹1111.00,expense
+29/03/2025,Food & Dinning,₹1778.00,expense
+29/03/2025,Shopping,₹3739.00,expense
+29/03/2025,Education,₹3134.00,expense
+29/03/2025,Entertainment,₹908.00,expense
+29/03/2025,Health,₹1431.00,expense
+29/03/2025,Others,₹4318.00,expense
+30/03/2025,Utilities,₹1545.00,expense
+30/03/2025,Groceries,₹922.00,expense
+30/03/2025,Transportation,₹4828.00,expense
+30/03/2025,Housing,₹802.00,expense
+30/03/2025,Food & Dinning,₹1777.00,expense
+30/03/2025,Shopping,₹2402.00,expense
+30/03/2025,Education,₹3045.00,expense
+30/03/2025,Entertainment,₹613.00,expense
+30/03/2025,Health,₹1698.00,expense
+30/03/2025,Others,₹4441.00,expense
+31/03/2025,Utilities,₹3585.00,expense
+31/03/2025,Groceries,₹992.00,expense
+31/03/2025,Transportation,₹983.00,expense
+31/03/2025,Housing,₹3351.00,expense
+31/03/2025,Food & Dinning,₹1042.00,expense
+31/03/2025,Shopping,₹2128.00,expense
+31/03/2025,Education,₹3240.00,expense
+31/03/2025,Entertainment,₹728.00,expense
+31/03/2025,Health,₹1302.00,expense
+31/03/2025,Others,₹1375.00,expense

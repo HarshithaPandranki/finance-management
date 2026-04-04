@@ -1,0 +1,24 @@
+Logo Replacement Instructions
+
+To replace the existing React logo with your financial logo:
+
+1. Rename the image you shared to the following files:
+   - finance-logo.ico (favicon - you may need to convert it to .ico format)
+   - finance-logo192.png (192x192 pixel version)
+   - finance-logo512.png (512x512 pixel version)
+
+2. Place these files in the "public" folder of your React app
+
+3. You can use an online converter tool like https://www.favicon-generator.org/ to:
+   - Upload your logo image
+   - Generate all the required sizes
+   - Download the package and extract the needed files
+
+4. If you want to keep the original logo files as backup, don't delete them,
+   just leave them in the public folder - your app will now use the new files
+   as specified in index.html and manifest.json
+
+5. After adding these files, restart your development server using:
+   npm start (or your usual start command)
+
+The index.html and manifest.json files have already been updated to refer to these new logo files. 

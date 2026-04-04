@@ -1,0 +1,101 @@
+Date,Description,Amount,Type
+01/01/2024,Health,"₹95,163.00",income
+02/01/2024,Groceries,"₹93,199.00",income
+03/01/2024,Education,"₹83,865.00",income
+04/01/2024,Utilities,"₹44,996.00",expense
+05/01/2024,Shopping,"₹87,431.00",expense
+06/01/2024,Utilities,"₹26,875.00",expense
+07/01/2024,Housing,"₹50,183.00",income
+08/01/2024,Utilities,"₹29,247.00",expense
+09/01/2024,Shopping,"₹86,466.00",income
+10/01/2024,Health,"₹17,014.00",expense
+11/01/2024,Food & Dinning,"₹45,245.00",expense
+12/01/2024,Utilities,"₹84,599.00",expense
+13/01/2024,Shopping,"₹21,057.00",expense
+14/01/2024,Entertainment,"₹90,377.00",income
+15/01/2024,Food & Dinning,"₹44,206.00",income
+16/01/2024,Salary,"₹87,636.00",income
+17/01/2024,Shopping,"₹63,957.00",income
+18/01/2024,Groceries,"₹99,744.00",expense
+19/01/2024,Food & Dinning,"₹58,605.00",expense
+20/01/2024,Food & Dinning,"₹78,095.00",expense
+21/01/2024,Health,"₹45,836.00",income
+22/01/2024,Food & Dinning,"₹83,129.00",expense
+23/01/2024,Entertainment,"₹58,088.00",income
+24/01/2024,Entertainment,"₹11,821.00",income
+25/01/2024,Entertainment,"₹8,966.00",income
+26/01/2024,Health,"₹46,029.00",expense
+27/01/2024,Entertainment,"₹8,710.00",income
+28/01/2024,Entertainment,"₹93,487.00",income
+29/01/2024,Utilities,"₹23,747.00",expense
+30/01/2024,Shopping,"₹74,157.00",income
+31/01/2024,Groceries,"₹46,943.00",income
+01/02/2024,Utilities,"₹29,673.00",expense
+02/02/2024,Others,"₹17,815.00",expense
+03/02/2024,Others,"₹96,315.00",expense
+04/02/2024,Housing,"₹57,330.00",expense
+05/02/2024,Health,"₹63,720.00",income
+06/02/2024,Shopping,"₹18,063.00",expense
+07/02/2024,Entertainment,"₹52,420.00",expense
+08/02/2024,Housing,"₹98,993.00",income
+09/02/2024,Utilities,"₹61,187.00",expense
+10/02/2024,Utilities,"₹46,380.00",expense
+11/02/2024,Education,"₹67,695.00",income
+12/02/2024,Food & Dinning,"₹94,255.00",income
+13/02/2024,Salary,"₹32,152.00",expense
+14/02/2024,Transportation,"₹59,204.00",expense
+15/02/2024,Shopping,"₹89,320.00",expense
+16/02/2024,Food & Dinning,"₹90,806.00",expense
+17/02/2024,Education,"₹52,842.00",expense
+18/02/2024,Food & Dinning,"₹35,113.00",expense
+19/02/2024,Housing,"₹47,072.00",income
+20/02/2024,Transportation,"₹25,236.00",income
+21/02/2024,Salary,"₹46,975.00",income
+22/02/2024,Others,"₹64,537.00",income
+23/02/2024,Others,"₹57,756.00",expense
+24/02/2024,Utilities,"₹24,916.00",income
+25/02/2024,Education,"₹41,149.00",income
+26/02/2024,Shopping,"₹59,544.00",income
+27/02/2024,Food & Dinning,"₹3,899.00",expense
+28/02/2024,Others,"₹59,470.00",income
+29/02/2024,Food & Dinning,"₹20,917.00",expense
+01/03/2024,Utilities,"₹26,404.00",expense
+02/03/2024,Utilities,₹543.00,income
+03/03/2024,Entertainment,"₹23,528.00",income
+04/03/2024,Salary,"₹77,455.00",income
+05/03/2024,Salary,"₹29,530.00",expense
+06/03/2024,Housing,"₹24,309.00",income
+07/03/2024,Shopping,₹613.00,expense
+08/03/2024,Transportation,"₹37,470.00",income
+09/03/2024,Education,"₹97,767.00",income
+10/03/2024,Groceries,"₹25,592.00",expense
+11/03/2024,Housing,"₹15,501.00",income
+12/03/2024,Utilities,"₹39,801.00",expense
+13/03/2024,Shopping,"₹24,349.00",expense
+14/03/2024,Housing,"₹20,443.00",income
+15/03/2024,Transportation,"₹93,047.00",expense
+16/03/2024,Education,"₹24,982.00",expense
+17/03/2024,Salary,"₹66,527.00",expense
+18/03/2024,Transportation,"₹36,606.00",expense
+19/03/2024,Entertainment,"₹48,654.00",expense
+20/03/2024,Housing,"₹28,836.00",income
+21/03/2024,Utilities,"₹23,046.00",expense
+22/03/2024,Food & Dinning,"₹57,590.00",expense
+23/03/2024,Others,"₹48,194.00",income
+24/03/2024,Salary,"₹86,566.00",expense
+25/03/2024,Groceries,"₹33,231.00",income
+26/03/2024,Food & Dinning,"₹19,582.00",income
+27/03/2024,Shopping,"₹42,090.00",expense
+28/03/2024,Utilities,"₹67,524.00",income
+29/03/2024,Utilities,"₹72,092.00",expense
+30/03/2024,Others,"₹40,643.00",income
+31/03/2024,Education,"₹26,343.00",income
+01/04/2024,Utilities,"₹23,226.00",expense
+02/04/2024,Entertainment,"₹58,453.00",income
+03/04/2024,Others,"₹74,565.00",income
+04/04/2024,Health,"₹10,903.00",expense
+05/04/2024,Entertainment,"₹80,528.00",income
+06/04/2024,Shopping,"₹32,657.00",income
+07/04/2024,Shopping,"₹26,610.00",expense
+08/04/2024,Utilities,"₹38,073.00",expense
+09/04/2024,Health,"₹96,710.00",income
