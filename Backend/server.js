@@ -42,20 +42,9 @@ app.use(cors({
 
 app.use(express.json());
 
-// ─── Nodemailer transporter (reusable, pooled) ───────────────────────────────
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  pool: true,          // reuse SMTP connections — much faster for multiple emails
-  maxConnections: 5,
-  maxMessages: 100,
-  auth: {
-    user: process.env.EMAIL,
-    pass: process.env.APP_PASS
-  },
-  tls: {
-    rejectUnauthorized: false
-  }
-});
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 transporter.verify((error) => {
   if (error) {
@@ -238,7 +227,6 @@ const sendGoalAlertEmail = async (userId, transaction) => {
   try {
     if (transaction.type !== 'expense') return;
 
-    // Use the category field if present, otherwise fall back to description
     const category = transaction.category || transaction.description;
 
     const [goal, user] = await Promise.all([
@@ -251,8 +239,8 @@ const sendGoalAlertEmail = async (userId, transaction) => {
     if (transaction.amount > goal.amount) {
       const exceeded = (transaction.amount - goal.amount).toFixed(2);
 
-      const mailOptions = {
-        from: `"Expense Alert" <${process.env.EMAIL}>`,
+      const { data, error } = await resend.emails.send({
+        from: 'Expense Alert <onboarding@resend.dev>',
         to: user.email,
         subject: `⚠️ Spending Alert: ${category}`,
         html: `
@@ -283,13 +271,15 @@ const sendGoalAlertEmail = async (userId, transaction) => {
               <p style="margin-top:16px; color:#757575; font-size:13px;">Please review your spending to stay on track.</p>
             </div>
           </div>`
-      };
+      });
 
-      const info = await transporter.sendMail(mailOptions);
-      console.log('✅ Alert email sent:', info.messageId);
+      if (error) {
+        console.error('❌ Resend error:', error);
+      } else {
+        console.log('✅ Alert email sent:', data.id);
+      }
     }
   } catch (err) {
-    // Log but never throw — this runs fire-and-forget
     console.error('❌ Goal email error:', err.message);
   }
 };
@@ -378,19 +368,18 @@ app.get('/api/goals', auth, async (req, res) => {
 // ─── Test Email ───────────────────────────────────────────────────────────────
 app.post('/api/test-email', auth, async (req, res) => {
   try {
-    const info = await transporter.sendMail({
-      from: `"Finance Tracker" <${process.env.EMAIL}>`,
+    const { data, error } = await resend.emails.send({
+      from: 'Finance Tracker <onboarding@resend.dev>',
       to: req.user.email,
       subject: 'Test Email ✅',
       html: '<h1>Test Email</h1><p>Your email configuration is working correctly!</p>'
     });
-    res.json({ success: true, messageId: info.messageId });
+    if (error) return res.status(500).json({ success: false, error });
+    res.json({ success: true, messageId: data.id });
   } catch (error) {
-    console.error('Test email error:', error);
     res.status(500).json({ success: false, error: error.message });
   }
 });
-
 // ─── Health Check ─────────────────────────────────────────────────────────────
 app.get('/', (req, res) => {
   res.json({
