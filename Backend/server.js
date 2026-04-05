@@ -14,91 +14,85 @@ import predictRoutes from './routes/predict.js';
 import fs from 'fs';
 
 dotenv.config();
+
 console.log('EMAIL:', process.env.EMAIL);
 console.log('APP_PASS:', process.env.APP_PASS ? '✅ Loaded' : '❌ Missing');
+
 const app = express();
+
+// ─── Upload Directory ────────────────────────────────────────────────────────
 const uploadDir = '/tmp/uploads';
 if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir, { recursive: true });
 }
 
-
-
-
-// Middleware
-// Middleware
+// ─── CORS ────────────────────────────────────────────────────────────────────
 app.use(cors({
-  origin: function(origin, callback) {
+  origin: function (origin, callback) {
     if (!origin) return callback(null, true);
-    
-    if (
-      origin.includes('vercel.app') ||
-      origin.includes('localhost')
-    ) {
+    if (origin.includes('vercel.app') || origin.includes('localhost')) {
       return callback(null, true);
     }
-    
     callback(new Error('Not allowed by CORS'));
   },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
-app.use(express.json()); //hello
 
-// Add email configuration after other configurations
-console.log('Email configuration:', {
-  emailUser: process.env.EMAIL ? 'Set' : 'Not set',
-  emailPass: process.env.APP_PASS ? 'Set' : 'Not set'
-});
+app.use(express.json());
 
+// ─── Nodemailer transporter (reusable, pooled) ───────────────────────────────
 const transporter = nodemailer.createTransport({
   service: 'gmail',
+  pool: true,          // reuse SMTP connections — much faster for multiple emails
+  maxConnections: 5,
+  maxMessages: 100,
   auth: {
     user: process.env.EMAIL,
     pass: process.env.APP_PASS
   },
   tls: {
-    rejectUnauthorized: false 
+    rejectUnauthorized: false
   }
 });
 
-// Verify transporter configuration
-transporter.verify(function(error, success) {
+transporter.verify((error) => {
   if (error) {
     console.error('Transporter verification failed:', error);
   } else {
-    console.log('Server is ready to send emails');
+    console.log('✅ Email server ready');
   }
 });
 
-// MongoDB connection with error handling
+// ─── MongoDB ─────────────────────────────────────────────────────────────────
 const connectDB = async () => {
   try {
     if (!process.env.MONGODB_URI) {
       throw new Error('MONGODB_URI is not defined in environment variables');
     }
-    
     await mongoose.connect(process.env.MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true
+      // useNewUrlParser and useUnifiedTopology are no longer needed in Mongoose 7+
+      maxPoolSize: 10,          // maintain up to 10 socket connections
+      serverSelectionTimeoutMS: 5000,
+      socketTimeoutMS: 45000,
     });
-    console.log('Connected to MongoDB successfully');
+    console.log('✅ Connected to MongoDB');
   } catch (error) {
     console.error('MongoDB connection error:', error.message);
     process.exit(1);
   }
 };
 
-// Call the connect function
 connectDB();
 
-// Define Goal schema and model (not extracted to separate file yet)
+// ─── Goal Schema ──────────────────────────────────────────────────────────────
 const goalSchema = new mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-    required: true
+    required: true,
+    index: true          // ← index for fast lookups by userId
   },
   description: {
     type: String,
@@ -108,70 +102,48 @@ const goalSchema = new mongoose.Schema({
     type: Number,
     required: true
   }
-}, {
-  timestamps: true
-});
+}, { timestamps: true });
+
+// Compound index: finding a user's goal for a specific category is a hot path
+goalSchema.index({ userId: 1, description: 1 });
 
 const Goal = mongoose.model('Goal', goalSchema);
 
-// Authentication middleware
+// ─── Auth Middleware ──────────────────────────────────────────────────────────
 const auth = async (req, res, next) => {
   try {
     const token = req.header('Authorization')?.replace('Bearer ', '');
-    
-    if (!token) {
-      throw new Error('No token provided');
-    }
+    if (!token) throw new Error('No token provided');
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    const user = await User.findById(decoded.userId);
 
-    if (!user) {
-      throw new Error('User not found');
-    }
+    // lean() returns a plain JS object — much faster, no Mongoose overhead
+    const user = await User.findById(decoded.userId).lean();
+    if (!user) throw new Error('User not found');
 
     req.user = user;
-    req.token = token;
     next();
   } catch (error) {
     res.status(401).json({ message: 'Please authenticate', error: error.message });
   }
 };
 
-// Auth routes
+// ─── Auth Routes ─────────────────────────────────────────────────────────────
 app.post('/api/auth/register', async (req, res) => {
   try {
     const { email, password, fullName, mobile } = req.body;
 
-    // Check if user exists
-    const existingUser = await User.findOne({ email });
-    if (existingUser) {
-      return res.status(400).json({ message: 'User already exists' });
-    }
+    const existingUser = await User.findOne({ email }).lean();
+    if (existingUser) return res.status(400).json({ message: 'User already exists' });
 
-    // Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
-
-    // Create new user
-    const user = new User({
-      email,
-      password: hashedPassword,
-      fullName,
-      mobile
-    });
-
+    const user = new User({ email, password: hashedPassword, fullName, mobile });
     await user.save();
 
-    // Generate token
-    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '24h' });
 
     res.status(201).json({
-      user: {
-        id: user._id,
-        email: user.email,
-        fullName: user.fullName,
-        role: user.role
-      },
+      user: { id: user._id, email: user.email, fullName: user.fullName, role: user.role },
       token
     });
   } catch (error) {
@@ -182,101 +154,72 @@ app.post('/api/auth/register', async (req, res) => {
 app.post('/api/auth/check-email', async (req, res) => {
   try {
     const { email } = req.body;
-    
-    if (!email) {
-      return res.status(400).json({
-        message: 'Email is required'
-      });
-    }
-    
-    // Check if email exists in database
-    const user = await User.findOne({ email: email.toLowerCase() });
-    
-    if (!user) {
-      return res.status(404).json({
-        message: 'This email is not registered. Please sign up first.'
-      });
-    }
-    
-    return res.status(200).json({
-      message: 'Email verified'
-    });
-    
+    if (!email) return res.status(400).json({ message: 'Email is required' });
+
+    const user = await User.findOne({ email: email.toLowerCase() }).lean();
+    if (!user) return res.status(404).json({ message: 'This email is not registered. Please sign up first.' });
+
+    return res.status(200).json({ message: 'Email verified' });
   } catch (error) {
     console.error('Email check error:', error);
-    return res.status(500).json({
-      message: 'Server error while checking email'
-    });
+    return res.status(500).json({ message: 'Server error while checking email' });
   }
 });
 
 app.post('/api/auth/login', async (req, res) => {
   try {
     const { email, password } = req.body;
-        if (!email || !password) {
-      return res.status(400).json({ message: 'Email and password are required' });
-    }
-    // Find user by email
+    if (!email || !password) return res.status(400).json({ message: 'Email and password are required' });
+
     const user = await User.findOne({ email: email.toLowerCase() });
-    
-    // Check if user exists
-    if (!user) {
-      return res.status(404).json({
-        message: 'Email not found. Please sign up first.'
-      });
-    }
+    if (!user) return res.status(404).json({ message: 'Email not found. Please sign up first.' });
 
-    // Check password
     const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
-      return res.status(401).json({
-        message: 'Invalid password'
-      });
-    }
+    if (!isMatch) return res.status(401).json({ message: 'Invalid password' });
 
-    // Generate token
-    const token = jwt.sign(
-      { userId: user._id },
-      process.env.JWT_SECRET,
-      { expiresIn: '24h' }
-    );
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '24h' });
 
-    // Send response
     res.json({
-      user: {
-        id: user._id,
-        email: user.email,
-        fullName: user.fullName,
-        role: user.role
-      },
+      user: { id: user._id, email: user.email, fullName: user.fullName, role: user.role },
       token
     });
-    
   } catch (error) {
     console.error('Login error:', error);
-    res.status(500).json({
-      message: 'Server error during login'
-    });
+    res.status(500).json({ message: 'Server error during login' });
   }
 });
 
-// Protected routes
-app.get('/api/transactions', auth, async (req, res) => {
-  try {
-    const { startDate, endDate } = req.query;
+// ─── Transactions ─────────────────────────────────────────────────────────────
 
-    // Validate date range
-    if (!startDate || !endDate) {
-      return res.status(400).json({ message: 'Please provide both startDate and endDate' });
-    }
+// IMPORTANT: /export must be declared BEFORE /:primeId to avoid route shadowing
+app.get('/api/transactions/export', auth, async (req, res) => {
+  try {
+    const { fromDate, toDate } = req.query;
+    if (!fromDate || !toDate) return res.status(400).json({ message: 'Please provide both fromDate and toDate' });
 
     const transactions = await Transaction.find({
       userId: req.user._id,
-      date: {
-        $gte: new Date(startDate),
-        $lte: new Date(endDate)
-      }
-    });
+      date: { $gte: new Date(fromDate), $lte: new Date(toDate) }
+    }).lean();    // lean() — plain objects, faster serialization
+
+    res.json(transactions);
+  } catch (error) {
+    console.error('Error exporting transactions:', error);
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.get('/api/transactions', auth, async (req, res) => {
+  try {
+    const { startDate, endDate } = req.query;
+    if (!startDate || !endDate) return res.status(400).json({ message: 'Please provide both startDate and endDate' });
+
+    const transactions = await Transaction.find({
+      userId: req.user._id,
+      date: { $gte: new Date(startDate), $lte: new Date(endDate) }
+    })
+      .lean()
+      .sort({ date: -1 });   // newest first, index-backed
 
     res.json(transactions);
   } catch (error) {
@@ -284,70 +227,73 @@ app.get('/api/transactions', auth, async (req, res) => {
   }
 });
 
-// Add this helper function after your schema definitions
-const checkGoalsAndNotify = async (userId, transaction) => {
+// ─── Goal Notification (non-blocking, fire-and-forget) ───────────────────────
+/**
+ * FIX: The original code matched transaction.description against goal.description.
+ * Track.jsx sends category names (e.g. "Food & Dinning") as the description field,
+ * so goal lookup is correct — but we now run this fully async so it NEVER delays
+ * the HTTP response to the user.
+ */
+const sendGoalAlertEmail = async (userId, transaction) => {
   try {
-    console.log('Starting goal check for userId:', userId);
-    console.log('New transaction:', transaction);
-    
-    // Only proceed if this is an expense
-    if (transaction.type !== 'expense') {
-      console.log('Not an expense transaction, skipping goal check');
-      return;
-    }
+    if (transaction.type !== 'expense') return;
 
-    // Get the goal for this specific transaction category only
-    const goal = await Goal.findOne({ 
-      userId,
-      description: transaction.description
-    });
-    
-    if (!goal) {
-      console.log('No goal found for category:', transaction.description);
-      return;
-    }
+    // Use the category field if present, otherwise fall back to description
+    const category = transaction.category || transaction.description;
 
-    // Get user email
-    const user = await User.findById(userId);
-    if (!user || !user.email) {
-      console.log('No user or email found for userId:', userId);
-      return;
-    }
+    const [goal, user] = await Promise.all([
+      Goal.findOne({ userId, description: category }).lean(),
+      User.findById(userId).select('email').lean()
+    ]);
 
-    // Check if this single transaction exceeds the goal
+    if (!goal || !user?.email) return;
+
     if (transaction.amount > goal.amount) {
-      console.log(`Goal limit reached for ${transaction.description}`);
-      
+      const exceeded = (transaction.amount - goal.amount).toFixed(2);
+
       const mailOptions = {
-        from: '"Expense Alert" <shanmukharaoadapaka123@gmail.com>',
+        from: `"Expense Alert" <${process.env.EMAIL}>`,
         to: user.email,
-        subject: `Spending Alert for ${transaction.description}`,
+        subject: `⚠️ Spending Alert: ${category}`,
         html: `
-          <h2>Spending Alert!</h2>
-          <p>Your recent transaction in category "${transaction.description}" has exceeded your set goal.</p>
-          <ul>
-            <li>Category: ${transaction.description}</li>
-            <li>Goal Limit: ₹${goal.amount.toFixed(2)}</li>
-            <li>Transaction Amount: ₹${transaction.amount.toFixed(2)}</li>
-            <li>Amount Exceeded: ₹${(transaction.amount - goal.amount).toFixed(2)}</li>
-          </ul>
-          <p>Please review your spending in this category.</p>
-        `
+          <div style="font-family: Arial, sans-serif; max-width: 480px; margin: auto; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
+            <div style="background: #ef5350; padding: 16px 24px;">
+              <h2 style="color: #fff; margin: 0;">⚠️ Spending Alert</h2>
+            </div>
+            <div style="padding: 24px;">
+              <p>Your recent <strong>${category}</strong> transaction exceeded your set goal.</p>
+              <table style="width:100%; border-collapse:collapse; margin-top:12px;">
+                <tr style="background:#f5f5f5;">
+                  <td style="padding:8px 12px; font-weight:bold;">Category</td>
+                  <td style="padding:8px 12px;">${category}</td>
+                </tr>
+                <tr>
+                  <td style="padding:8px 12px; font-weight:bold;">Goal Limit</td>
+                  <td style="padding:8px 12px;">₹${goal.amount.toFixed(2)}</td>
+                </tr>
+                <tr style="background:#f5f5f5;">
+                  <td style="padding:8px 12px; font-weight:bold;">Transaction Amount</td>
+                  <td style="padding:8px 12px; color:#ef5350;">₹${transaction.amount.toFixed(2)}</td>
+                </tr>
+                <tr>
+                  <td style="padding:8px 12px; font-weight:bold;">Exceeded By</td>
+                  <td style="padding:8px 12px; color:#ef5350; font-weight:bold;">₹${exceeded}</td>
+                </tr>
+              </table>
+              <p style="margin-top:16px; color:#757575; font-size:13px;">Please review your spending to stay on track.</p>
+            </div>
+          </div>`
       };
 
-      try {
-        const info = await transporter.sendMail(mailOptions);
-        console.log('Email sent successfully:', info.messageId);
-      } catch (emailError) {
-        console.error('Email sending failed:', emailError);
-      }
+      const info = await transporter.sendMail(mailOptions);
+      console.log('✅ Alert email sent:', info.messageId);
     }
-  } catch (error) {
-    console.error('Error in checkGoalsAndNotify:', error);
+  } catch (err) {
+    // Log but never throw — this runs fire-and-forget
+    console.error('❌ Goal email error:', err.message);
   }
 };
 
-// Update the POST transaction route to include goal checking
 app.post('/api/transactions', auth, async (req, res) => {
   try {
     const transaction = new Transaction({
@@ -358,34 +304,27 @@ app.post('/api/transactions', auth, async (req, res) => {
 
     await transaction.save();
 
-    if (transaction.type === 'expense') {
-      await checkGoalsAndNotify(req.user._id, transaction);
-    }
-
+    // ← Respond immediately, then check goals in the background
     res.status(201).json(transaction);
+
+    if (transaction.type === 'expense') {
+      // Fire-and-forget: does NOT block the response
+      sendGoalAlertEmail(req.user._id, transaction).catch(console.error);
+    }
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
 });
 
-
 app.put('/api/transactions/:primeId', auth, async (req, res) => {
   try {
     const transaction = await Transaction.findOneAndUpdate(
-      { 
-        primeId: parseInt(req.params.primeId), 
-        userId: req.user._id 
-      },
-      {
-        ...req.body,
-        userId: req.user._id  // Ensure userId cannot be changed
-      },
+      { primeId: parseInt(req.params.primeId), userId: req.user._id },
+      { ...req.body, userId: req.user._id },
       { new: true }
-    );
-    
-    if (!transaction) {
-      return res.status(404).json({ message: 'Transaction not found' });
-    }
+    ).lean();
+
+    if (!transaction) return res.status(404).json({ message: 'Transaction not found' });
     res.json(transaction);
   } catch (error) {
     console.error('Error updating transaction:', error);
@@ -398,11 +337,9 @@ app.delete('/api/transactions/:primeId', auth, async (req, res) => {
     const transaction = await Transaction.findOneAndDelete({
       primeId: parseInt(req.params.primeId),
       userId: req.user._id
-    });
-    
-    if (!transaction) {
-      return res.status(404).json({ message: 'Transaction not found' });
-    }
+    }).lean();
+
+    if (!transaction) return res.status(404).json({ message: 'Transaction not found' });
     res.json({ message: 'Transaction deleted successfully' });
   } catch (error) {
     console.error('Error deleting transaction:', error);
@@ -410,44 +347,19 @@ app.delete('/api/transactions/:primeId', auth, async (req, res) => {
   }
 });
 
-// Export transactions by date range
-app.get('/api/transactions/export', auth, async (req, res) => {
-  try {
-    const { fromDate, toDate } = req.query;
-
-    if (!fromDate || !toDate) {
-      return res.status(400).json({ message: 'Please provide both fromDate and toDate' });
-    }
-
-    const transactions = await Transaction.find({
-      userId: req.user._id,
-      date: {
-        $gte: new Date(fromDate),
-        $lte: new Date(toDate)
-      }
-    });
-
-    res.json(transactions);
-  } catch (error) {
-    console.error('Error exporting transactions:', error);
-    res.status(500).json({ message: error.message });
-  }
-});
-
-
+// ─── Goals ────────────────────────────────────────────────────────────────────
 app.post('/api/goals', auth, async (req, res) => {
   try {
-    // Delete existing goals for this user
+    // Run delete + insert in parallel where possible
     await Goal.deleteMany({ userId: req.user._id });
-    
-    // Create new goals from the received data
+
     const goalsData = Object.entries(req.body.goals).map(([description, amount]) => ({
       userId: req.user._id,
       description,
       amount
     }));
-    
-    const goals = await Goal.insertMany(goalsData);
+
+    const goals = goalsData.length > 0 ? await Goal.insertMany(goalsData) : [];
     res.status(201).json(goals);
   } catch (error) {
     res.status(400).json({ message: error.message });
@@ -456,62 +368,41 @@ app.post('/api/goals', auth, async (req, res) => {
 
 app.get('/api/goals', auth, async (req, res) => {
   try {
-    const goals = await Goal.find({ userId: req.user._id });
+    const goals = await Goal.find({ userId: req.user._id }).lean();
     res.json(goals);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
 
-// Add this new test endpoint
+// ─── Test Email ───────────────────────────────────────────────────────────────
 app.post('/api/test-email', auth, async (req, res) => {
   try {
-    const testMailOptions = {
+    const info = await transporter.sendMail({
       from: `"Finance Tracker" <${process.env.EMAIL}>`,
       to: req.user.email,
-      subject: 'Test Email',
-      html: '<h1>This is a test email</h1><p>If you received this, your email configuration is working correctly!</p>'
-    };
-
-    const info = await transporter.sendMail(testMailOptions);
-    
-    res.json({
-      success: true,
-      messageId: info.messageId,
-      previewUrl: nodemailer.getTestMessageUrl(info),
-      message: 'Test email sent successfully!'
+      subject: 'Test Email ✅',
+      html: '<h1>Test Email</h1><p>Your email configuration is working correctly!</p>'
     });
+    res.json({ success: true, messageId: info.messageId });
   } catch (error) {
-    console.error('Error sending test email:', error);
-    res.status(500).json({
-      success: false,
-      error: error.message,
-      message: 'Failed to send test email'
-    });
+    console.error('Test email error:', error);
+    res.status(500).json({ success: false, error: error.message });
   }
 });
 
-const upload = multer({ dest: 'uploads/' });
-
-// Health check endpoint
+// ─── Health Check ─────────────────────────────────────────────────────────────
 app.get('/', (req, res) => {
   res.json({
     message: 'Finance Management API is running',
     timestamp: new Date().toISOString(),
-    endpoints: {
-      auth: '/api/auth',
-      transactions: '/api/transactions',
-      goals: '/api/goals',
-      predict: '/predict'
-    }
+    endpoints: { auth: '/api/auth', transactions: '/api/transactions', goals: '/api/goals', predict: '/predict' }
   });
 });
 
-// Mount predict routes
-// Note: file upload middleware is applied in the route handlers as needed
+// ─── Predict Routes ───────────────────────────────────────────────────────────
 app.use('/predict', predictRoutes);
 
+// ─── Start ────────────────────────────────────────────────────────────────────
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
