@@ -6,7 +6,7 @@ import { fileURLToPath } from "url";
 import mongoose from 'mongoose';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
-import nodemailer from 'nodemailer';
+
 import multer from 'multer';
 import User from './models/User.js';
 import Transaction from './models/Transaction.js';
@@ -45,14 +45,7 @@ app.use(express.json());
 import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-
-transporter.verify((error) => {
-  if (error) {
-    console.error('Transporter verification failed:', error);
-  } else {
-    console.log('✅ Email server ready');
-  }
-});
+console.log('✅ Resend email client ready');
 
 // ─── MongoDB ─────────────────────────────────────────────────────────────────
 const connectDB = async () => {
